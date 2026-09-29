@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>My Chat History</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: linear-gradient( 135deg, #667eea, #764ba2);
+            padding: 30px;
+        }
+        
+        .container {
+            max-width: 1000px;
+            margin: auto;
+            background: #f8fafc;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
+        }
+        
+        .header {
+            background: linear-gradient( 135deg, #4f46e5, #7c3aed);
+            color: white;
+            padding: 22px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+        
+        .header h2 {
+            margin-bottom: 5px;
+        }
+        
+        .header p {
+            font-size: 13px;
+            opacity: .85;
+        }
+        
+        .back-btn {
+            background: white;
+            color: #4f46e5;
+            text-decoration: none;
+            padding: 10px 15px;
+            border-radius: 9px;
+            font-weight: bold;
+        }
+        
+        .history {
+            padding: 25px;
+        }
+        
+        .chat {
+            background: white;
+            padding: 20px;
+            border-radius: 14px;
+            margin-bottom: 15px;
+            border: 1px solid #e5e7eb;
+        }
+        
+        .question {
+            color: #4338ca;
+            font-weight: bold;
+            margin-bottom: 10px;
+        }
+        
+        .answer {
+            color: #374151;
+            line-height: 1.5;
+        }
+        
+        .date {
+            color: #9ca3af;
+            font-size: 12px;
+            margin-top: 10px;
+        }
+        
+        .empty {
+            text-align: center;
+            padding: 50px;
+            color: #6b7280;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <div class="header">
+
+            <div>
+
+                <h2>
+                    📜 My Chat History
+                </h2>
+
+                <p>
+                    Welcome, {{ user_name }}
+                </p>
+
+            </div>
+
+            <a href="/" class="back-btn">
+                ← Chatbot
+            </a>
+
+        </div>
+
+
+        <div class="history">
+
+            {% if chats %} {% for chat in chats %}
+
+            <div class="chat">
+
+                <div class="question">
+
+                    👤 You: {{ chat[0] }}
+
+                </div>
+
+                <div class="answer">
+
+                    🤖 AI: {{ chat[1] }}
+
+                </div>
+
+                <div class="date">
+
+                    {{ chat[2] }}
+
+                </div>
+
+            </div>
+
+            {% endfor %} {% else %}
+
+            <div class="empty">
+
+                <h3>
+                    📭 No Chat History
+                </h3>
+
+                <p>
+                    Aapne abhi tak koi question nahi poocha.
+                </p>
+
+            </div>
+
+            {% endif %}
+
+        </div>
+
+    </div>
+
+</body>
+
+</html>

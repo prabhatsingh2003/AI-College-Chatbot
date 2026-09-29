@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>AI College Assistant</title>
+
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+
+</head>
+
+
+<body>
+
+
+    <div class="container">
+
+
+        <!-- Header -->
+
+        <div class="chat-header">
+
+            <div class="bot-icon">
+                🤖
+            </div>
+
+            <div>
+
+                <h2>
+                    AI College Assistant
+                </h2>
+
+                <p>
+                    Online • Ready to help
+                </p>
+
+            </div>
+
+            <!-- Login Button -->
+
+            {% if user_name %}
+
+            <div class="user-menu">
+
+                <span class="user-name">
+            👤 {{ user_name }}
+        </span>
+
+                <a href="/history" class="history-btn">
+            📜 History
+        </a>
+
+                <a href="/logout" class="logout-btn">
+            Logout
+        </a>
+
+            </div>
+
+            {% else %}
+
+            <a href="/login" class="login-btn">
+        🔐 Login
+    </a> {% endif %}
+
+
+        </div>
+
+
+
+        <!-- Chat Area -->
+
+        <div id="chat-box" class="chat-box">
+
+
+            <div class="message bot-message">
+
+                <div class="avatar">
+                    🤖
+                </div>
+
+                <div class="message-content">
+
+                    Hello! 👋
+
+                    <br><br> Welcome to the
+                    <b>AI College Assistant</b>.
+
+                    <br><br> How can I help you today?
+
+                </div>
+
+            </div>
+
+
+        </div>
+
+
+
+        <!-- Quick Questions -->
+
+        <div class="quick-questions">
+
+
+            <button onclick="sendQuickMessage('Admission kaise le sakte hain?')">
+            🎓 Admission
+        </button>
+
+
+            <button onclick="sendQuickMessage('College fees kitni hai?')">
+            💰 Fees
+        </button>
+
+
+            <button onclick="sendQuickMessage('Library timing kya hai?')">
+            📚 Library
+        </button>
+
+
+            <button onclick="sendQuickMessage('Exam ke baare me batao')">
+            📝 Exam
+        </button>
+
+
+            <button onclick="sendQuickMessage('IT department ke baare me batao')">
+            💻 IT Department
+        </button>
+
+
+        </div>
+
+
+
+        <!-- Input -->
+
+        <div class="input-area">
+
+
+            <input type="text" id="user-input" placeholder="Ask something about college..." autocomplete="off">
+
+
+            <button id="send-btn" onclick="sendMessage()">
+
+            Send
+
+        </button>
+
+
+        </div>
+
+
+    </div>
+
+
+    <script src="{{ url_for('static',
+                         filename='script.js') }}">
+    </script>
+
+
+</body>
+
+</html>

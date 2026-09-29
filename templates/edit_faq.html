@@ -1,0 +1,116 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Edit FAQ</title>
+
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: Arial, sans-serif;
+        }
+        
+        body {
+            min-height: 100vh;
+            background: #f1f5f9;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        
+        .container {
+            width: 600px;
+            max-width: 95%;
+            background: white;
+            padding: 30px;
+            border-radius: 18px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
+        }
+        
+        h1 {
+            margin-bottom: 25px;
+            color: #1f2937;
+        }
+        
+        input,
+        textarea {
+            width: 100%;
+            padding: 13px;
+            margin-bottom: 15px;
+            border: 1px solid #d1d5db;
+            border-radius: 10px;
+            outline: none;
+        }
+        
+        textarea {
+            min-height: 130px;
+            resize: vertical;
+        }
+        
+        input:focus,
+        textarea:focus {
+            border-color: #4f46e5;
+        }
+        
+        button {
+            border: none;
+            background: #4f46e5;
+            color: white;
+            padding: 13px 20px;
+            border-radius: 10px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        
+        button:hover {
+            background: #4338ca;
+        }
+        
+        .back {
+            display: inline-block;
+            margin-left: 10px;
+            text-decoration: none;
+            color: #4f46e5;
+        }
+    </style>
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>✏️ Edit FAQ</h1>
+
+        <form method="POST">
+
+            <input type="text" name="question" value="{{ faq[1] }}" placeholder="Question" required>
+
+            <textarea name="answer" placeholder="Answer" required>{{ faq[2] }}</textarea>
+
+            <input type="text" name="category" value="{{ faq[3] }}" placeholder="Category" required>
+
+            <input type="text" name="keywords" value="{{ faq[4] }}" placeholder="Keywords" required>
+
+            <button type="submit">
+                💾 Update FAQ
+            </button>
+
+            <a href="/admin" class="back">
+                Cancel
+            </a>
+
+        </form>
+
+    </div>
+
+</body>
+
+</html>
